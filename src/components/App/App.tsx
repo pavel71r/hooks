@@ -18,7 +18,7 @@ const App = () => {
     {
       label: "task",
       id: uuidv4(),
-      isCompleted: false,
+      isCompleted: true,
       createDate: new Date(),
       seconds: 3600,
     },

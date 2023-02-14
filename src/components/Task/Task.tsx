@@ -18,7 +18,6 @@ export type TaskType = {
 const Task = (props: TaskType) => {
   const [isEdit, setIsEdit] = useState(false);
   const [value, setValue] = useState(props.label);
-  const [clickText, setClickText] = useState(false);
 
   const onEdit = (event: string) => {
     props.onEdit(event);
@@ -35,42 +34,29 @@ const Task = (props: TaskType) => {
     event.preventDefault();
   };
 
-  const onOnClickText = () => {
-    setClickText(() => true);
-  };
-
-  const onOffClickText = () => {
-    setClickText(() => false);
-  };
-
   let time = formatDistance(new Date(), new Date(props.createDate));
   let classNames = "";
   if (props.isCompleted) {
     classNames += "done";
   }
   let el;
-  let checkbox;
+  let checkbox = (
+    <input
+      className="Toggle"
+      type="checkbox"
+      onChange={props.onToggleDone}
+      checked={props.isCompleted}
+    />
+  );
+
+  let createdTime = <span className="time">{`created ${time}  ago`}</span>;
+
   if (!isEdit) {
     el = (
       <label className="Description">
-        <span className={classNames} onClick={onOnClickText}>
-          {value}
-        </span>
-        <Timer
-          props={props}
-          clickText={clickText}
-          offClickText={onOffClickText}
-        />
-        <span className="time">{`created ${time}  ago`}</span>
+        <span className={classNames}>{value}</span>
+        <Timer {...props} />
       </label>
-    );
-    checkbox = (
-      <input
-        className="Toggle"
-        type="checkbox"
-        onChange={props.onToggleDone}
-        checked={props.isCompleted}
-      />
     );
   } else {
     el = (
@@ -84,12 +70,12 @@ const Task = (props: TaskType) => {
         />
       </form>
     );
-    checkbox = "";
   }
   return (
     <div className="Task">
-      {checkbox}
+      {!isEdit && checkbox}
       {el}
+      {!isEdit && createdTime}
       <button className="Edit" onClick={buttonEdit} />
       <button className="Destroy" onClick={props.deleteTask} />
     </div>
