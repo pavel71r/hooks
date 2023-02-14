@@ -49,10 +49,12 @@ const Task = (props: TaskType) => {
 
   if (!isEdit) {
     el = (
-      <label className="Description">
-        <span className={classNames}>{value}</span>
-        <Timer {...props} />
-      </label>
+      <div className="Description">
+        <label>
+          <span className={classNames}> {value}</span>
+          <Timer {...props} />
+        </label>
+      </div>
     );
   } else {
     el = (
