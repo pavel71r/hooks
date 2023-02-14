@@ -1,0 +1,23 @@
+.Timer {
+  flex-grow: 1;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  opacity: 0.7;
+  text-align: end;
+}
+
+.Start {
+  color: blue;
+  background: white;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.Stop {
+  background: white;
+  font-size: 17px;
+  cursor: pointer;
+}

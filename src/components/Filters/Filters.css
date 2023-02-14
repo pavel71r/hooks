@@ -1,0 +1,19 @@
+.Filters {
+  display: flex;
+  gap: 10px;
+  font: inherit;
+  align-items: center;
+}
+
+.btn {
+  padding: 2px 5px;
+  font-size: 16px;
+  background-color: transparent;
+  opacity: 0.7;
+}
+
+.color {
+  background-color: lightsteelblue;
+  border-radius: 10px;
+  color: black;
+}
