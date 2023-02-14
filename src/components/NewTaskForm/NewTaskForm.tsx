@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import "./NewTaskForm.css";
+import React, { useState } from 'react';
+import './NewTaskForm.css';
 
 type AddTaskType = {
   addTask: (label: string, sec: number) => void;
 };
 
 const NewTaskForm = (props: AddTaskType) => {
-  const [label, setLabel] = useState("");
-  const [minutes, setMinutes] = useState("");
-  const [seconds, setSeconds] = useState("");
+  const [label, setLabel] = useState('');
+  const [minutes, setMinutes] = useState('');
+  const [seconds, setSeconds] = useState('');
 
   const onSubmit = (event: { preventDefault: () => void }) => {
-    let text = label.replace(/\s/g, "");
+    const text = label.replace(/\s/g, '');
     if (text.length) {
-      let sec = Number(minutes) * 60 + Number(seconds);
+      const sec = Number(minutes) * 60 + Number(seconds);
       props.addTask(label, sec);
-      setLabel("");
-      setMinutes("");
-      setSeconds("");
+      setLabel('');
+      setMinutes('');
+      setSeconds('');
     }
     event.preventDefault();
   };

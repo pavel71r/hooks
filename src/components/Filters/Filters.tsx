@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./Filters.css";
+import React, { useState } from 'react';
+import './Filters.css';
 
 type FiltersType = {
   buttonsFilter: (event: string) => void;
@@ -14,28 +14,28 @@ const Filters = (props: FiltersType) => {
 
   const onFilter = (event: React.BaseSyntheticEvent) => {
     props.buttonsFilter(event.target.innerText);
-    if (event.target.innerText === "all") {
+    if (event.target.innerText === 'all') {
       setFilter({ all: true, active: false, completed: false });
     }
-    if (event.target.innerText === "active") {
+    if (event.target.innerText === 'active') {
       setFilter({ all: false, active: true, completed: false });
     }
-    if (event.target.innerText === "completed") {
+    if (event.target.innerText === 'completed') {
       setFilter({ all: false, active: false, completed: true });
     }
   };
 
-  let all = "btn";
-  let active = "btn";
-  let completed = "btn";
+  let all = 'btn';
+  let active = 'btn';
+  let completed = 'btn';
   if (filter.all) {
-    all += " color";
+    all += ' color';
   }
   if (filter.active) {
-    active += " color";
+    active += ' color';
   }
   if (filter.completed) {
-    completed += " color";
+    completed += ' color';
   }
   return (
     <div className="Filters">

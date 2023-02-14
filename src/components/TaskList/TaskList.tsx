@@ -1,6 +1,7 @@
-import React from "react";
-import Task from "../Task/Task";
-import type { TodoDataType } from "../App/App";
+import React from 'react';
+
+import Task from '../Task/Task';
+import type { TodoDataType } from '../App/App';
 
 type TaskList = {
   todoData: Array<TodoDataType>;
@@ -13,13 +14,13 @@ type TaskList = {
 
 const TaskList = (props: TaskList) => {
   let elements: Array<any> = props.todoData.filter((item) => {
-    if (props.filter === "all") {
+    if (props.filter === 'all') {
       return item;
     }
-    if (props.filter === "completed") {
+    if (props.filter === 'completed') {
       return item.isCompleted;
     }
-    if (props.filter === "active") {
+    if (props.filter === 'active') {
       return !item.isCompleted;
     }
   });

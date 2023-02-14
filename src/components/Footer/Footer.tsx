@@ -1,6 +1,7 @@
-import React from "react";
-import "./Footer.css";
-import Filters from "../Filters/Filters";
+import React from 'react';
+
+import './Footer.css';
+import Filters from '../Filters/Filters';
 
 type FooterType = {
   statusCount: number;

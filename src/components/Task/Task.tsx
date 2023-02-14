@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import "./Task.css";
-import { formatDistance } from "date-fns";
-import Timer from "../Timer/Timer";
+import React, { useState } from 'react';
+import './Task.css';
+import { formatDistance } from 'date-fns';
+
+import Timer from '../Timer/Timer';
 
 export type TaskType = {
   createDate: Date;
@@ -34,22 +35,17 @@ const Task = (props: TaskType) => {
     event.preventDefault();
   };
 
-  let time = formatDistance(new Date(), new Date(props.createDate));
-  let classNames = "";
+  const time = formatDistance(new Date(), new Date(props.createDate));
+  let classNames = '';
   if (props.isCompleted) {
-    classNames += "done";
+    classNames += 'done';
   }
   let el;
-  let checkbox = (
-    <input
-      className="Toggle"
-      type="checkbox"
-      onChange={props.onToggleDone}
-      checked={props.isCompleted}
-    />
+  const checkbox = (
+    <input className="Toggle" type="checkbox" onChange={props.onToggleDone} checked={props.isCompleted} />
   );
 
-  let createdTime = <span className="time">{`created ${time}  ago`}</span>;
+  const createdTime = <span className="time">{`created ${time}  ago`}</span>;
 
   if (!isEdit) {
     el = (

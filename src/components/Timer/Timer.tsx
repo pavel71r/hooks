@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import "./Timer.css";
-import type { TaskType } from "../Task/Task";
+import React, { useState, useEffect } from 'react';
+
+import './Timer.css';
+import type { TaskType } from '../Task/Task';
 
 const Timer = (props: TaskType) => {
   const [timer, setTimer] = useState(false);

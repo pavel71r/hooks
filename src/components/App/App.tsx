@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import NewTaskForm from "../NewTaskForm/NewTaskForm";
-import "./App.css";
-import TaskList from "../TaskList/TaskList";
-import { v4 as uuidv4 } from "uuid";
-import Footer from "../Footer/Footer";
+import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+import NewTaskForm from '../NewTaskForm/NewTaskForm';
+import './App.css';
+import TaskList from '../TaskList/TaskList';
+import Footer from '../Footer/Footer';
 
 export type TodoDataType = {
   label: string;
@@ -16,28 +17,28 @@ export type TodoDataType = {
 const App = () => {
   const [todoData, setTodoData] = useState<Array<TodoDataType>>([
     {
-      label: "task",
+      label: 'task',
       id: uuidv4(),
       isCompleted: true,
       createDate: new Date(),
       seconds: 3600,
     },
     {
-      label: "task",
+      label: 'task',
       id: uuidv4(),
       isCompleted: false,
       createDate: new Date(),
       seconds: 3600,
     },
     {
-      label: "task",
+      label: 'task',
       id: uuidv4(),
       isCompleted: false,
       createDate: new Date(),
       seconds: 3600,
     },
   ]);
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState('all');
 
   const onEdit = (label: string, id: string) => {
     const newTodoData = todoData.filter((item) => {
@@ -82,11 +83,7 @@ const App = () => {
       ...oldTask,
       isCompleted: !oldTask.isCompleted,
     };
-    const newTodoData = [
-      ...todoData.slice(0, idx),
-      newTask,
-      ...todoData.slice(idx + 1),
-    ];
+    const newTodoData = [...todoData.slice(0, idx), newTask, ...todoData.slice(idx + 1)];
     setTodoData(newTodoData);
   };
 
@@ -97,11 +94,7 @@ const App = () => {
       ...oldTask,
       seconds: value,
     };
-    const newTodoData = [
-      ...todoData.slice(0, idx),
-      newTask,
-      ...todoData.slice(idx + 1),
-    ];
+    const newTodoData = [...todoData.slice(0, idx), newTask, ...todoData.slice(idx + 1)];
     setTodoData(newTodoData);
   };
 
